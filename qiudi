@@ -1,0 +1,67 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>csskmdh</title>
+    <style type="text/css">
+        .door {
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            border: 1px solid gray;
+            perspective: 500px;
+            background: url('dog.gif') no-repeat;
+            background-size: 100% auto;
+            position: relative;
+        }
+        .door > div {
+            box-sizing: border-box;
+            border: 1px solid black;
+        }
+        .left,.right {
+            float: left;
+            width: 50%;
+            height: 100%;
+            background-color: brown;
+            transition: 1s;
+            position: relative;
+        }
+        .left{
+            transform-origin: left center;
+        }
+        .right{
+            transform-origin: right center;
+        }
+        .left::before,.right::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-10px);
+            border: 1px solid whitesmoke;
+        }
+        .left::before{
+            right: 0;
+        }
+        .right::before {
+            left: 0;
+        }
+        .door:hover .left {
+            transform: rotateY(-130deg);
+        }
+        .door:hover .right {
+            transform: rotateY(130deg);
+        }
+    </style>
+</head>
+<body>
+<div class="door">
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+</body>
+</html>
